@@ -5,12 +5,15 @@ Configuration for memecoin trading bot.
 """
 
 import os
-from dotenv import load_dotenv
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Load .env from project root
 env_path = Path(__file__).parent / '.env'
 load_dotenv(env_path)
+
+# === TEMPORARY: Force clear state on next start ===
+CLEAR_STATE_ON_START = True   # Set to True, then remove after one successful run
 
 # === MODE SELECTION ===
 SIMULATION_MODE = False   # True = mock data, False = live data
