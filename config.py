@@ -8,6 +8,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
+print(f"TELEGRAM_BOT_TOKEN loaded: {bool(os.environ.get('TELEGRAM_BOT_TOKEN'))}")
+print(f"TELEGRAM_CHAT_ID loaded: {bool(os.environ.get('TELEGRAM_CHAT_ID'))}")
 
 # === MODE SELECTION ===
 SIMULATION_MODE = False   # True = mock data, False = live data
@@ -72,10 +74,8 @@ RPC_ENDPOINT = "https://solana-rpc.publicnode.com"
 BACKUP_RPC_ENDPOINT = "https://api.mainnet-beta.solana.com"
 PUMP_FUN_WS = "wss://pumpportal.fun/api/data"
 
-# === TELEGRAM ALERTS ===
-TELEGRAM_BOT_TOKEN = os.environ.get("8921708589:AAHOWJHVQtHewn_Mu7WPAkxKcbLPQKh_Lxc", "")
-TELEGRAM_CHAT_ID = os.environ.get(" 1082143881", "")
-
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 # === STATE PERSISTENCE ===
 STATE_FILE = "data/open_positions.json"
 LOG_FILE = "data/bot.log"

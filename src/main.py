@@ -24,8 +24,13 @@ from src.telegram_alerts import (
     alert_trade_opened,
     alert_trade_closed,
     alert_daily_summary,
-    alert_error
+    alert_error,
+    alert_system_started
 )
+
+import sys
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
 
 
 class MemeBot:
@@ -201,6 +206,9 @@ class MemeBot:
         self.logger.info("Starting PAPER trading loop (real data)")
         self.monitor.connect()
 
+        # Send startup alert
+        alert_system_started()
+
         # Start price monitoring thread
         price_thread = threading.Thread(target=self._price_monitor_loop, daemon=True)
         price_thread.start()
@@ -345,6 +353,7 @@ class MemeBot:
                 alert_daily_summary(stats)
             except Exception:
                 pass
+
 
 if __name__ == "__main__":
     bot = MemeBot()

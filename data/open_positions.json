@@ -1,4 +1,47 @@
 {
-  "timestamp": "2026-08-14T03:25:25.374373",
-  "positions": []
+  "timestamp": "2026-08-14T21:12:42.151230",
+  "positions": [
+    {
+      "token": "9593dFjsLKKRAaz4LX1eK2DDEgrzfu3idb6yvMysD6A1",
+      "entry_price": 0.002277962665,
+      "size": 5.0,
+      "entry_time": "2026-08-14T21:01:40.225737",
+      "exit_price": null,
+      "exit_reason": null,
+      "pnl_percent": null,
+      "bucket_1_filled": false,
+      "bucket_2_filled": false,
+      "trailing_filled": false,
+      "stop_filled": false,
+      "peak_price": 0.0
+    },
+    {
+      "token": "EyNbAt2aavE1SbEpmKCLxniHGKez9KqF93zwvAojFKa6",
+      "entry_price": 0.00694577,
+      "size": 5.0,
+      "entry_time": "2026-08-14T21:01:40.259221",
+      "exit_price": null,
+      "exit_reason": null,
+      "pnl_percent": null,
+      "bucket_1_filled": false,
+      "bucket_2_filled": false,
+      "trailing_filled": false,
+      "stop_filled": false,
+      "peak_price": 0.0
+    },
+    {
+      "token": "8FtafPHhmYVtKQYrbNs4ZSS2Hwykw5dJ3t1JtGsC5yBx",
+      "entry_price": 0.00843552,
+      "size": 5.0,
+      "entry_time": "2026-08-14T21:01:40.283206",
+      "exit_price": null,
+      "exit_reason": null,
+      "pnl_percent": null,
+      "bucket_1_filled": false,
+      "bucket_2_filled": false,
+      "trailing_filled": false,
+      "stop_filled": false,
+      "peak_price": 0.0
+    }
+  ]
 }
