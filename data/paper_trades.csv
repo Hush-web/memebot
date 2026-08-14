@@ -1,0 +1,7 @@
+timestamp,token_address,entry_price,exit_price,position_size,pnl_percent,pnl_dollars,exit_reason,hold_time_minutes,bucket_1_filled,bucket_2_filled,trailing_filled,stop_filled,slippage_percent,execution_latency_ms,order_retries
+2026-08-14T02:30:31.216337,pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn,0.002886,0.002886,4.0655,0.0,0.0,TIMEOUT,15.01,False,False,False,False,2.04275,314,0
+2026-08-14T02:30:33.288510,ukHH6c7mMyiWCf1b9pnWe25TSpkDDt3H5pQZgZ74J82,0.00075,0.00075,4.6345,0.0,0.0,TIMEOUT,15.01,False,False,False,False,2.32725,188,0
+2026-08-14T02:30:35.321094,9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump,0.1427,0.1427,4.671,0.0,0.0,TIMEOUT,15.01,False,False,False,False,2.3455,208,0
+,,0.002963,0.002965,,0.0006749915626055571,,TIMEOUT,,False,False,False,False,,,
+,,0.0007602,0.0007579,,-0.0030255196001052376,,TIMEOUT,,False,False,False,False,,,
+,,0.0001248,0.0001248,,0.0,,TIMEOUT,,False,False,False,False,,,

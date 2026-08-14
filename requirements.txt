@@ -1,0 +1,6 @@
+jupiter-py>=0.5.0
+solana>=0.30.0
+websocket-client>=1.5.0
+pandas>=2.0.0
+python-dotenv>=1.0.0
+requests>=2.28.0
