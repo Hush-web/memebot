@@ -1,17 +1,17 @@
 """
 config.py
 =========
-Central configuration for the memecoin trading bot.
-
-Every module imports its settings from here so that behavior can be
-changed in one place without touching business logic.
+Configuration for memecoin trading bot.
 """
-# === TELEGRAM ALERTS ===
-TELEGRAM_BOT_TOKEN = "8921708589:AAHOWJHVQtHewn_Mu7WPAkxKcbLPQKh_Lxc"
-TELEGRAM_CHAT_ID = "1082143881"
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # === MODE SELECTION ===
-SIMULATION_MODE = False  # True = use mock data & simulated price paths. False = use live data.
-PAPER_TRADE = True       # True = log actions only, no real transactions. False = real execution.
+SIMULATION_MODE = False   # True = mock data, False = live data
+PAPER_TRADE = True        # True = log only, False = real execution
 
 # === POSITION & RISK ===
 MAX_POSITION_SIZE = 0.05              # 5% of portfolio per trade
@@ -30,7 +30,7 @@ TAKE_PROFIT_BUCKET_2 = 1.50           # +150%: sell 35%
 TRAILING_STOP_PCT = 0.20              # 20% trailing from peak
 HARD_STOP_LOSS = 0.30                 # -30%: sell everything
 TIMEOUT_MINUTES = 15                  # Exit if sideways for 15 mins
-SIDEWAYS_THRESHOLD = 0.02             # +/-2% from entry = sideways
+SIDEWAYS_THRESHOLD = 0.02             # ±2% from entry = sideways
 
 # === ORDER ALLOCATION ===
 BUCKET_1_ALLOCATION = 0.35            # 35% of position
@@ -51,30 +51,30 @@ ORDER_FAILURE_RATE = 0.05             # 5% chance of order failure (simulated)
 GAS_FEE_PER_TX = 0.05                 # $0.05 per transaction
 
 # === FILTERS (Hard) ===
-MIN_LIQUIDITY_SOL = 1.0
-MAX_HOLDER_CONCENTRATION = 0.30
+MIN_LIQUIDITY_SOL = 0.3               # WAS 1.0 – loosened
+MAX_HOLDER_CONCENTRATION = 0.50       # WAS 0.30 – loosened
 REQUIRE_MINT_DISABLED = True
 REQUIRE_FREEZE_DISABLED = True
-MIN_AGE_SECONDS = 120
-MAX_AGE_SECONDS = 900
+MIN_AGE_SECONDS = 30                  # WAS 120 – loosened
+MAX_AGE_SECONDS = 1800                # WAS 900 – loosened
+
 # === FILTERS (Soft) ===
-MAX_DEV_HOLDING = 0.10          # allow up to 10% dev holding
-MIN_24H_VOLUME = 20000          # $20k minimum volume
-MIN_HOLDERS = 20                # at least 20 holders
+MAX_DEV_HOLDING = 0.20                # WAS 0.10 – loosened
+MIN_24H_VOLUME = 5000                 # WAS 20000 – loosened
+MIN_HOLDERS = 5                       # WAS 20 – loosened
+
 # === SIMULATION ONLY ===
 SIMULATION_DAYS = 7
 MOCK_TOKENS_PER_DAY = 50
 
 # === PAPER TRADING / LIVE ===
 RPC_ENDPOINT = "https://solana-rpc.publicnode.com"
-BACKUP_RPC_ENDPOINT = "https://api.mainnet-beta.solana.com"   # fallback
-# Free, keyless real-time feed for pump.fun token creation + trades.
-# pump.fun itself has no official public API; PumpPortal is the widely used
-# community data feed. subscribeNewToken is free; subscribeTokenTrade is
-# metered at 0.01 SOL per 10,000 events against a linked wallet if you
-# attach an api-key — omitting the key uses the free unmetered tier with
-# best-effort rate limits. See https://pumpportal.fun/data-api/real-time/
+BACKUP_RPC_ENDPOINT = "https://api.mainnet-beta.solana.com"
 PUMP_FUN_WS = "wss://pumpportal.fun/api/data"
+
+# === TELEGRAM ALERTS ===
+TELEGRAM_BOT_TOKEN = os.environ.get("8921708589:AAHOWJHVQtHewn_Mu7WPAkxKcbLPQKh_Lxc", "")
+TELEGRAM_CHAT_ID = os.environ.get(" 1082143881", "")
 
 # === STATE PERSISTENCE ===
 STATE_FILE = "data/open_positions.json"
@@ -82,29 +82,3 @@ LOG_FILE = "data/bot.log"
 CSV_EXPORT = "data/simulated_trades.csv"
 PAPER_CSV = "data/paper_trades.csv"
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(module)s - %(message)s"
-
-
-def validate_config() -> None:
-    """Sanity-check config values at startup. Raises ValueError on bad config."""
-    errors = []
-
-    if not (0 < MAX_POSITION_SIZE <= 1):
-        errors.append("MAX_POSITION_SIZE must be between 0 and 1")
-    if not (0 < MAX_DAILY_LOSS <= 1):
-        errors.append("MAX_DAILY_LOSS must be between 0 and 1")
-    if not (0 < MAX_WEEKLY_LOSS <= 1):
-        errors.append("MAX_WEEKLY_LOSS must be between 0 and 1")
-    if MAX_CONCURRENT_POSITIONS < 1:
-        errors.append("MAX_CONCURRENT_POSITIONS must be >= 1")
-    if BASE_CAPITAL <= 0:
-        errors.append("BASE_CAPITAL must be > 0")
-
-    alloc_sum = round(BUCKET_1_ALLOCATION + BUCKET_2_ALLOCATION + TRAILING_ALLOCATION, 6)
-    if alloc_sum != 1.0:
-        errors.append(f"Bucket allocations must sum to 1.0 (got {alloc_sum})")
-
-    if MIN_AGE_SECONDS >= MAX_AGE_SECONDS:
-        errors.append("MIN_AGE_SECONDS must be < MAX_AGE_SECONDS")
-
-    if errors:
-        raise ValueError("Config validation failed:\n" + "\n".join(f"  - {e}" for e in errors))

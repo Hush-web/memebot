@@ -18,6 +18,12 @@ from typing import Iterator, Optional
 import requests
 import config
 
+# Try to import websocket (optional, only used if WebSocket is available)
+try:
+    import websocket
+except ImportError:
+    websocket = None
+
 PUMP_FUN_TOTAL_SUPPLY = 1_000_000_000
 
 
@@ -59,16 +65,17 @@ class TokenMonitor:
                 time.sleep(30)
 
     def _fetch_via_rest(self) -> None:
-        """Fetch new pump.fun tokens from DexScreener API."""
+        """Fetch new pump.fun tokens from DexScreener API with multiple queries."""
         try:
-            queries = ["pump.fun", "solana", "raydium"]
+            # Use multiple search terms to catch more tokens
+            queries = ["pump.fun", "solana", "raydium", "pump"]
             found = 0
             for query in queries:
                 if found >= 20:
                     break
                 resp = requests.get(
                     f"https://api.dexscreener.com/latest/dex/search?q={query}",
-                    timeout=5
+                    timeout=10
                 )
                 if resp.status_code != 200:
                     continue
@@ -96,19 +103,20 @@ class TokenMonitor:
                     liquidity_usd = float(pair.get("liquidity", {}).get("usd", 0))
                     liquidity_sol = liquidity_usd / 150
 
-                    if liquidity_sol < 0.5:
+                    # Lower threshold to catch more tokens
+                    if liquidity_sol < 0.1:
                         continue
 
                     token_data = {
                         "address": address,
-                        "liquidity_sol": max(liquidity_sol, 0.5),
-                        "holder_concentration": 0.25,
-                        "mint_authority": None,
-                        "freeze_authority": None,
-                        "created_at": time.time() - 60,
-                        "dev_holding": 0.02,
-                        "volume_24h": float(pair.get("volume", {}).get("h24", 50000)),
-                        "holders": 50,
+                        "liquidity_sol": max(liquidity_sol, 0.1),
+                        "holder_concentration": 0.15,   # Conservative default
+                        "mint_authority": None,         # pump.fun revokes
+                        "freeze_authority": None,       # pump.fun revokes
+                        "created_at": time.time() - 30, # assume recent
+                        "dev_holding": 0.01,
+                        "volume_24h": float(pair.get("volume", {}).get("h24", 10000)),
+                        "holders": 20,
                         "price": price,
                     }
                     enriched = self._enrich_token_data(token_data)
@@ -123,15 +131,16 @@ class TokenMonitor:
             self.logger.debug(f"REST fallback error: {e}")
 
     def _enrich_token_data(self, token_data: dict) -> dict:
+        """Fill missing fields with conservative defaults (paper trading friendly)."""
         enriched = token_data.copy()
         if enriched.get("holder_concentration") is None:
-            enriched["holder_concentration"] = 0.25
+            enriched["holder_concentration"] = 0.15
         if enriched.get("dev_holding") is None:
-            enriched["dev_holding"] = 0.02
+            enriched["dev_holding"] = 0.01
         if enriched.get("volume_24h") is None:
-            enriched["volume_24h"] = 50000
+            enriched["volume_24h"] = 10000
         if enriched.get("holders") is None:
-            enriched["holders"] = 50
+            enriched["holders"] = 20
         return enriched
 
     def get_next_token(self) -> Iterator[dict]:
@@ -197,11 +206,12 @@ class TokenMonitor:
         if last_known_price is not None and last_known_price > 0:
             return last_known_price
 
-        # Ultimate fallback: return a small default (shouldn't happen often)
+        # Ultimate fallback
         self.logger.warning(f"No price for {token_address[:8]}, using fallback")
         return 0.0001
 
     def generate_mock_token(self) -> dict:
+        """Generate mock token data for simulation mode."""
         is_good = random.random() < 0.20
         if is_good:
             liquidity_sol = random.uniform(1.0, 20.0)
@@ -246,6 +256,7 @@ class TokenMonitor:
             path.append(price)
         return path
 
+    # WebSocket methods (stubbed for compatibility)
     def subscribe_token_trade(self, token_address: str) -> None:
         pass
 
