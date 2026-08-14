@@ -80,6 +80,7 @@ TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # === STATE PERSISTENCE ===
+CLEAR_STATE_ON_START = False   # Set to True to clear state on every startup
 STATE_FILE = "data/open_positions.json"
 LOG_FILE = "data/bot.log"
 CSV_EXPORT = "data/simulated_trades.csv"
