@@ -6,10 +6,11 @@ Configuration for memecoin trading bot.
 
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv()
-print(f"TELEGRAM_BOT_TOKEN loaded: {bool(os.environ.get('TELEGRAM_BOT_TOKEN'))}")
-print(f"TELEGRAM_CHAT_ID loaded: {bool(os.environ.get('TELEGRAM_CHAT_ID'))}")
+# Load .env from project root
+env_path = Path(__file__).parent / '.env'
+load_dotenv(env_path)
 
 # === MODE SELECTION ===
 SIMULATION_MODE = False   # True = mock data, False = live data
@@ -52,18 +53,18 @@ ORDER_FAILURE_RATE = 0.05             # 5% chance of order failure (simulated)
 # === GAS FEES ===
 GAS_FEE_PER_TX = 0.05                 # $0.05 per transaction
 
-# === FILTERS (Hard) ===
-MIN_LIQUIDITY_SOL = 0.3               # WAS 1.0 – loosened
-MAX_HOLDER_CONCENTRATION = 0.50       # WAS 0.30 – loosened
-REQUIRE_MINT_DISABLED = True
-REQUIRE_FREEZE_DISABLED = True
-MIN_AGE_SECONDS = 30                  # WAS 120 – loosened
-MAX_AGE_SECONDS = 1800                # WAS 900 – loosened
+# === FILTERS (Hard) – Industry Standard ===
+MIN_LIQUIDITY_SOL = 1.0               # Industry standard: > 1 SOL
+MAX_HOLDER_CONCENTRATION = 0.30       # Industry standard: Top 10 < 30%
+REQUIRE_MINT_DISABLED = True          # Must be revoked
+REQUIRE_FREEZE_DISABLED = True        # Must be revoked
+MIN_AGE_SECONDS = 120                 # Industry standard: 2 minutes old
+MAX_AGE_SECONDS = 900                 # Industry standard: 15 minutes old
 
-# === FILTERS (Soft) ===
-MAX_DEV_HOLDING = 0.20                # WAS 0.10 – loosened
-MIN_24H_VOLUME = 5000                 # WAS 20000 – loosened
-MIN_HOLDERS = 5                       # WAS 20 – loosened
+# === FILTERS (Soft) – Industry Standard ===
+MAX_DEV_HOLDING = 0.05                # Industry standard: Dev < 5%
+MIN_24H_VOLUME = 30000                # Industry standard: > $30k volume
+MIN_HOLDERS = 50                      # Industry standard: > 50 holders
 
 # === SIMULATION ONLY ===
 SIMULATION_DAYS = 7
@@ -74,8 +75,10 @@ RPC_ENDPOINT = "https://solana-rpc.publicnode.com"
 BACKUP_RPC_ENDPOINT = "https://api.mainnet-beta.solana.com"
 PUMP_FUN_WS = "wss://pumpportal.fun/api/data"
 
+# === TELEGRAM (from environment variables) ===
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
+
 # === STATE PERSISTENCE ===
 STATE_FILE = "data/open_positions.json"
 LOG_FILE = "data/bot.log"
