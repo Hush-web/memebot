@@ -53,18 +53,18 @@ ORDER_FAILURE_RATE = 0.05             # 5% chance of order failure (simulated)
 # === GAS FEES ===
 GAS_FEE_PER_TX = 0.05                 # $0.05 per transaction
 
-# === FILTERS (Hard) – Balanced ===
-MIN_LIQUIDITY_SOL = 0.5               # Between 1.0 and 0.3
-MAX_HOLDER_CONCENTRATION = 0.40       # Between 0.30 and 0.50
+# === FILTERS (Hard) – Loosened to get trades ===
+MIN_LIQUIDITY_SOL = 0.1               # Was 0.5 – much looser
+MAX_HOLDER_CONCENTRATION = 0.60       # Was 0.40 – looser
 REQUIRE_MINT_DISABLED = True
 REQUIRE_FREEZE_DISABLED = True
-MIN_AGE_SECONDS = 60                  # 1 minute old
-MAX_AGE_SECONDS = 1200                # 20 minutes old
+MIN_AGE_SECONDS = 15                  # Was 60 – faster entry
+MAX_AGE_SECONDS = 2400                # Was 1200 – allow older tokens
 
-# === FILTERS (Soft) – Balanced ===
-MAX_DEV_HOLDING = 0.10                # Dev < 10%
-MIN_24H_VOLUME = 15000                # $15k volume
-MIN_HOLDERS = 20                      # At least 20 holders
+# === FILTERS (Soft) – Loosened ===
+MAX_DEV_HOLDING = 0.25                # Was 0.10 – dev can hold more
+MIN_24H_VOLUME = 2000                 # Was 15000 – lower volume threshold
+MIN_HOLDERS = 5                       # Was 20 – fewer holders allowed
 
 # === SIMULATION ONLY ===
 SIMULATION_DAYS = 7
@@ -80,7 +80,7 @@ TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 
 # === STATE PERSISTENCE ===
-CLEAR_STATE_ON_START = True   # Set to True to clear state on every startup
+CLEAR_STATE_ON_START = True           # Clear state on each startup to avoid stuck positions
 STATE_FILE = "data/open_positions.json"
 LOG_FILE = "data/bot.log"
 CSV_EXPORT = "data/simulated_trades.csv"
