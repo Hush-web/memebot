@@ -20,6 +20,12 @@ from src.exit_logic import ExitLogic
 from src.position_manager import PositionManager, Position
 from src.state_manager import StateManager
 from src.logger import TradeLogger
+from src.telegram_alerts import (
+    alert_trade_opened,
+    alert_trade_closed,
+    alert_daily_summary,
+    alert_error
+)
 
 
 class MemeBot:
@@ -53,6 +59,7 @@ class MemeBot:
 
         self.capital = config.BASE_CAPITAL
         self.running = True
+        self._daily_summary_sent = False
 
         # Set up signal handlers
         signal.signal(signal.SIGINT, self._signal_handler)
@@ -198,9 +205,21 @@ class MemeBot:
         price_thread = threading.Thread(target=self._price_monitor_loop, daemon=True)
         price_thread.start()
 
+        # Reset daily summary flag at midnight (simplified: check every loop)
+        self._daily_summary_sent = False
+
         for token in self.monitor.get_next_token():
             if not self.running:
                 break
+
+            # Check daily summary (send once per day)
+            current_hour = datetime.now().hour
+            if current_hour == 23 and not self._daily_summary_sent:
+                self._send_daily_summary()
+                self._daily_summary_sent = True
+            elif current_hour != 23:
+                self._daily_summary_sent = False
+
             if not self.risk_manager.can_trade():
                 self.logger.info("Risk limit reached, pausing discovery")
                 time.sleep(10)
@@ -232,6 +251,9 @@ class MemeBot:
             self.position_manager.add_position(pos)
             self.state_manager.save_state(self.position_manager.get_all_positions())
             self.logger.info(f"Opened position {pos.token[:8]} @ {entry_price:.8f} size=${position_size:.2f}")
+
+            # Send Telegram alert for trade opened
+            alert_trade_opened(pos.token, pos.entry_price, pos.size)
 
     def _price_monitor_loop(self):
         """Background thread: monitor open positions and check exits using real prices."""
@@ -266,7 +288,25 @@ class MemeBot:
                         f"Closed {pos.token[:8]} @ {exit_price:.8f} "
                         f"reason={exit_reason} PnL={pos.pnl_percent:.2%}"
                     )
+                    # Send Telegram alert for trade closed
+                    alert_trade_closed(
+                        pos.token,
+                        pos.exit_price,
+                        pos.exit_reason,
+                        pos.pnl_percent,
+                        pnl_dollars
+                    )
             time.sleep(2)
+
+    def _send_daily_summary(self):
+        """Send daily performance summary to Telegram."""
+        try:
+            stats = self.logger_obj.get_summary()
+            stats['capital'] = self.capital
+            alert_daily_summary(stats)
+            self.logger.info("Daily summary sent to Telegram")
+        except Exception as e:
+            self.logger.error(f"Failed to send daily summary: {e}")
 
     def _print_summary(self):
         """Print final summary."""
@@ -297,6 +337,14 @@ class MemeBot:
         print(f"State saved to: {config.STATE_FILE}")
         print("="*50)
 
+        # Send final summary to Telegram (if in paper trading and not simulation)
+        if not config.SIMULATION_MODE:
+            try:
+                stats = self.logger_obj.get_summary()
+                stats['capital'] = self.capital
+                alert_daily_summary(stats)
+            except Exception:
+                pass
 
 if __name__ == "__main__":
     bot = MemeBot()

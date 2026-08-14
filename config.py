@@ -6,7 +6,9 @@ Central configuration for the memecoin trading bot.
 Every module imports its settings from here so that behavior can be
 changed in one place without touching business logic.
 """
-
+# === TELEGRAM ALERTS ===
+TELEGRAM_BOT_TOKEN = "8921708589:AAHOWJHVQtHewn_Mu7WPAkxKcbLPQKh_Lxc"
+TELEGRAM_CHAT_ID = "1082143881"
 # === MODE SELECTION ===
 SIMULATION_MODE = False  # True = use mock data & simulated price paths. False = use live data.
 PAPER_TRADE = True       # True = log actions only, no real transactions. False = real execution.
