@@ -5,15 +5,12 @@ Configuration for memecoin trading bot.
 """
 
 import os
-from pathlib import Path
 from dotenv import load_dotenv
+from pathlib import Path
 
 # Load .env from project root
 env_path = Path(__file__).parent / '.env'
 load_dotenv(env_path)
-
-# === TEMPORARY: Force clear state on next start ===
-CLEAR_STATE_ON_START = True   # Set to True, then remove after one successful run
 
 # === MODE SELECTION ===
 SIMULATION_MODE = False   # True = mock data, False = live data
@@ -56,18 +53,18 @@ ORDER_FAILURE_RATE = 0.05             # 5% chance of order failure (simulated)
 # === GAS FEES ===
 GAS_FEE_PER_TX = 0.05                 # $0.05 per transaction
 
-# === FILTERS (Hard) – Industry Standard ===
-MIN_LIQUIDITY_SOL = 1.0               # Industry standard: > 1 SOL
-MAX_HOLDER_CONCENTRATION = 0.30       # Industry standard: Top 10 < 30%
-REQUIRE_MINT_DISABLED = True          # Must be revoked
-REQUIRE_FREEZE_DISABLED = True        # Must be revoked
-MIN_AGE_SECONDS = 120                 # Industry standard: 2 minutes old
-MAX_AGE_SECONDS = 900                 # Industry standard: 15 minutes old
+# === FILTERS (Hard) – Balanced ===
+MIN_LIQUIDITY_SOL = 0.5               # Between 1.0 and 0.3
+MAX_HOLDER_CONCENTRATION = 0.40       # Between 0.30 and 0.50
+REQUIRE_MINT_DISABLED = True
+REQUIRE_FREEZE_DISABLED = True
+MIN_AGE_SECONDS = 60                  # 1 minute old
+MAX_AGE_SECONDS = 1200                # 20 minutes old
 
-# === FILTERS (Soft) – Industry Standard ===
-MAX_DEV_HOLDING = 0.05                # Industry standard: Dev < 5%
-MIN_24H_VOLUME = 30000                # Industry standard: > $30k volume
-MIN_HOLDERS = 50                      # Industry standard: > 50 holders
+# === FILTERS (Soft) – Balanced ===
+MAX_DEV_HOLDING = 0.10                # Dev < 10%
+MIN_24H_VOLUME = 15000                # $15k volume
+MIN_HOLDERS = 20                      # At least 20 holders
 
 # === SIMULATION ONLY ===
 SIMULATION_DAYS = 7
