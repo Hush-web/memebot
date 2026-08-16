@@ -27,8 +27,8 @@ MAX_CONCURRENT_POSITIONS = 3
 BASE_CAPITAL = 100.0
 
 # === EXIT LOGIC ===
-TAKE_PROFIT_BUCKET_1 = 0.60
-TAKE_PROFIT_BUCKET_2 = 1.50
+TAKE_PROFIT_BUCKET_1 = 0.20
+TAKE_PROFIT_BUCKET_2 = 0.50
 TRAILING_STOP_PCT = 0.20
 HARD_STOP_LOSS = 0.25          # Tighter: exit at -25% instead of -30% to reduce slippage impact
 TIMEOUT_MINUTES = 15
@@ -52,13 +52,13 @@ ORDER_FAILURE_RATE = 0.05
 # === GAS FEES ===
 GAS_FEE_PER_TX = 0.05
 
-# === FILTERS (Hard) – Tightened for safety ===
-MIN_LIQUIDITY_SOL = 1.0               # Increased from 0.5/0.1 – prevents low‑liquidity trades
-MAX_HOLDER_CONCENTRATION = 0.30       # Tightened from 0.40 – avoid whale dumps
-REQUIRE_MINT_DISABLED = True
-REQUIRE_FREEZE_DISABLED = True
-MIN_AGE_SECONDS = 60                  # 1 minute old
-MAX_AGE_SECONDS = 900                 # 15 minutes old
+MIN_LIQUIDITY_SOL = 0.05
+MAX_HOLDER_CONCENTRATION = 0.70
+MAX_DEV_HOLDING = 0.25
+MIN_24H_VOLUME = 1000
+MIN_HOLDERS = 5
+MIN_AGE_SECONDS = 10
+MAX_AGE_SECONDS = 600             
 
 # === FILTERS (Soft) – Tightened ===
 MAX_DEV_HOLDING = 0.05                # Tightened from 0.10 – dev can't hold too much
@@ -68,6 +68,9 @@ MIN_HOLDERS = 30                      # Increased from 20 – more community sup
 # === SIMULATION ONLY ===
 SIMULATION_DAYS = 7
 MOCK_TOKENS_PER_DAY = 50
+
+# === SOFT SCORE THRESHOLD ===
+SOFT_SCORE_THRESHOLD = 20   # Lower to allow more tokens (was effectively 40)
 
 # === PAPER TRADING / LIVE ===
 RPC_ENDPOINT = "https://solana-rpc.publicnode.com"
