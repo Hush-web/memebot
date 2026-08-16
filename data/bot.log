@@ -1250,3 +1250,159 @@
 2026-08-14 21:12:37,819 - INFO - monitor - Queue empty, forcing REST fetch...
 2026-08-14 21:12:42,150 - INFO - main - Received shutdown signal, saving state...
 2026-08-14 21:12:42,153 - INFO - main - State saved. Exiting.
+2026-08-14 21:18:25,620 - INFO - main - Initializing MemeBot...
+2026-08-14 21:18:25,622 - INFO - main - Restored position 9593dFjs @ 0.00227796
+2026-08-14 21:18:25,624 - INFO - main - Restored position EyNbAt2a @ 0.00694577
+2026-08-14 21:18:25,624 - INFO - main - Restored position 8FtafPHh @ 0.00843552
+2026-08-14 21:18:25,625 - INFO - main - Starting PAPER trading loop (real data)
+2026-08-14 21:18:25,625 - INFO - monitor - Paper trading mode – REST discovery + real-time price polling
+2026-08-14 21:18:25,628 - INFO - monitor - REST fallback thread started (polls every 10 seconds for new tokens)
+2026-08-14 21:18:27,833 - INFO - monitor - REST added token: 9593dFjs... @ $0.00225500
+2026-08-14 21:18:27,834 - INFO - monitor - REST added token: EyNbAt2a... @ $0.00687700
+2026-08-14 21:18:27,834 - INFO - monitor - REST added token: 8FtafPHh... @ $0.00835200
+2026-08-14 21:18:27,834 - INFO - monitor - REST added token: 6Jc7JsWn... @ $0.00687900
+2026-08-14 21:18:27,835 - INFO - monitor - REST added token: 0xFbD40b... @ $0.00281000
+2026-08-14 21:18:27,835 - INFO - monitor - REST added token: Eg8uZs9R... @ $0.00680700
+2026-08-14 21:18:27,835 - INFO - monitor - REST added token: 7v1hhtPk... @ $0.00000667
+2026-08-14 21:18:27,836 - INFO - monitor - REST added token: CpLdd5Zy... @ $0.00000426
+2026-08-14 21:18:27,836 - INFO - monitor - REST added token: EJ8gMGoV... @ $0.00000151
+2026-08-14 21:18:27,836 - INFO - monitor - REST added 9 token(s) to queue
+2026-08-14 21:18:29,447 - INFO - monitor - REST added token: 0x311935... @ $75.06100000
+2026-08-14 21:18:29,447 - INFO - monitor - REST added token: GqR98CsE... @ $85.48000000
+2026-08-14 21:18:29,452 - INFO - monitor - REST added token: sosd5Q3D... @ $143.20000000
+2026-08-14 21:18:29,452 - INFO - monitor - REST added token: 7AEEdoP2... @ $85.01900000
+2026-08-14 21:18:29,452 - INFO - monitor - REST added token: 5XXn2PCJ... @ $87.58000000
+2026-08-14 21:18:29,452 - INFO - monitor - REST added token: DWCj1WhL... @ $84.54000000
+2026-08-14 21:18:29,455 - INFO - monitor - REST added token: BCWd9Gw3... @ $84.29000000
+2026-08-14 21:18:29,456 - INFO - monitor - REST added token: A9ecbzft... @ $79.82000000
+2026-08-14 21:18:29,457 - INFO - monitor - REST added token: 672ArEjP... @ $81.10000000
+2026-08-14 21:18:29,458 - INFO - monitor - REST added token: sokhCSmz... @ $92.43000000
+2026-08-14 21:18:29,460 - INFO - monitor - REST added token: 8F8FLuwv... @ $83.42000000
+2026-08-14 21:18:29,460 - INFO - monitor - REST added token: SooEj828... @ $78.36000000
+2026-08-14 21:18:29,461 - INFO - monitor - REST added token: ALAcK3Ds... @ $86.52000000
+2026-08-14 21:18:29,461 - INFO - monitor - REST added 16 token(s) to queue
+2026-08-14 21:18:29,462 - INFO - monitor - REST added 6 token(s) to queue
+2026-08-14 21:18:31,089 - INFO - monitor - REST added token: FqNUcgaY... @ $0.00035630
+2026-08-14 21:18:31,089 - INFO - monitor - REST added token: FThrNpdi... @ $0.00092130
+2026-08-14 21:18:31,089 - INFO - monitor - REST added token: 6GmAFSYs... @ $0.01074000
+2026-08-14 21:18:31,090 - INFO - monitor - REST added token: HxQhDGYq... @ $0.00369600
+2026-08-14 21:18:31,090 - INFO - monitor - REST added token: 7cFG9Jj6... @ $0.00019530
+2026-08-14 21:18:31,090 - INFO - monitor - REST added token: 8XtRWb4u... @ $0.00321700
+2026-08-14 21:18:31,091 - INFO - monitor - REST added token: 9BB6NFEc... @ $0.13850000
+2026-08-14 21:18:31,091 - INFO - monitor - REST added token: 5XyKkFaJ... @ $0.00037700
+2026-08-14 21:18:31,091 - INFO - monitor - REST added token: DKu9kykS... @ $0.01454000
+2026-08-14 21:18:31,091 - INFO - monitor - REST added token: CARDSccU... @ $0.15660000
+2026-08-14 21:18:31,092 - INFO - monitor - REST added token: 8xH8ikqG... @ $0.00063920
+2026-08-14 21:18:31,092 - INFO - monitor - REST added token: pumpCmXq... @ $0.00280900
+2026-08-14 21:18:31,092 - INFO - monitor - REST added token: Dz9mQ9Nz... @ $0.03922000
+2026-08-14 21:18:31,092 - INFO - monitor - REST added token: EFuksA43... @ $0.00466100
+2026-08-14 21:18:31,093 - INFO - monitor - REST added 20 token(s) to queue
+2026-08-14 21:18:32,580 - INFO - monitor - REST added token: HKJHsYJH... @ $0.00502200
+2026-08-14 21:18:32,580 - INFO - monitor - REST added token: J6pQQ3FA... @ $0.05126000
+2026-08-14 21:18:32,580 - INFO - monitor - REST added token: 7Y6Rix8X... @ $0.00180600
+2026-08-14 21:18:32,581 - INFO - monitor - REST added token: Ce2gx9KG... @ $0.02458000
+2026-08-14 21:18:32,581 - INFO - monitor - REST added 20 token(s) to queue
+2026-08-14 21:18:33,837 - INFO - main - Price monitor loop started (every 2s)
+2026-08-14 21:18:33,838 - INFO - main - Max concurrent positions reached, waiting...
+2026-08-14 21:18:35,125 - INFO - exit_logic - Timeout triggered for 9593dFjs @ 0.00225500
+2026-08-14 21:18:35,150 - INFO - execution - [PAPER] SELL 9593dFjsLKKRAaz4LX1eK2DDEgrzfu3idb6yvMysD6A1 @ 0.002255 amount=$5.00 reason=TIMEOUT
+2026-08-14 21:18:35,150 - INFO - risk_manager - Trade recorded: loss | PnL=$-0.05 | Daily PnL=$-0.05 | Weekly PnL=$-0.05 | Consecutive losses=1
+2026-08-14 21:18:35,154 - INFO - main - Closed 9593dFjs @ 0.00225500 reason=TIMEOUT PnL=-1.01%
+2026-08-14 21:18:38,500 - INFO - exit_logic - Timeout triggered for EyNbAt2a @ 0.00687700
+2026-08-14 21:18:38,521 - INFO - execution - [PAPER] SELL EyNbAt2aavE1SbEpmKCLxniHGKez9KqF93zwvAojFKa6 @ 0.006877 amount=$5.00 reason=TIMEOUT
+2026-08-14 21:18:38,522 - INFO - risk_manager - Trade recorded: loss | PnL=$-0.05 | Daily PnL=$-0.10 | Weekly PnL=$-0.10 | Consecutive losses=2
+2026-08-14 21:18:38,525 - INFO - main - Closed EyNbAt2a @ 0.00687700 reason=TIMEOUT PnL=-0.99%
+2026-08-14 21:18:41,367 - INFO - exit_logic - Timeout triggered for 8FtafPHh @ 0.00835200
+2026-08-14 21:18:41,378 - INFO - execution - [PAPER] SELL 8FtafPHhmYVtKQYrbNs4ZSS2Hwykw5dJ3t1JtGsC5yBx @ 0.008352 amount=$5.00 reason=TIMEOUT
+2026-08-14 21:18:41,379 - WARNING - risk_manager - Circuit breaker triggered after 3 consecutive losses. Paused for 1 hours.
+2026-08-14 21:18:41,390 - INFO - risk_manager - Trade recorded: loss | PnL=$-0.05 | Daily PnL=$-0.15 | Weekly PnL=$-0.15 | Consecutive losses=3
+2026-08-14 21:18:41,397 - INFO - main - Closed 8FtafPHh @ 0.00835200 reason=TIMEOUT PnL=-0.99%
+2026-08-14 21:18:43,850 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-14 21:18:45,394 - INFO - monitor - REST added token: 4kjruqGH... @ $0.00182500
+2026-08-14 21:18:45,396 - INFO - monitor - REST added token: ukHH6c7m... @ $0.00079960
+2026-08-14 21:18:45,397 - INFO - monitor - REST added 2 token(s) to queue
+2026-08-14 21:18:46,922 - INFO - monitor - REST added token: 0xB7C000... @ $0.01023000
+2026-08-14 21:18:46,922 - INFO - monitor - REST added token: 0xec4252... @ $0.00200900
+2026-08-14 21:18:46,923 - INFO - monitor - REST added token: 274HcT76... @ $0.00260900
+2026-08-14 21:18:46,923 - INFO - monitor - REST added token: 99kDGDi5... @ $0.00487900
+2026-08-14 21:18:46,924 - INFO - monitor - REST added 6 token(s) to queue
+2026-08-14 21:18:49,567 - INFO - main - Risk limit reached, pausing discovery
+2026-08-14 21:18:59,568 - INFO - main - Risk limit reached, pausing discovery
+2026-08-14 21:19:09,569 - INFO - main - Risk limit reached, pausing discovery
+2026-08-14 21:19:19,570 - INFO - main - Risk limit reached, pausing discovery
+2026-08-14 21:19:25,565 - INFO - main - Received shutdown signal, saving state...
+2026-08-14 21:19:25,569 - INFO - main - State saved. Exiting.
+2026-08-16 01:22:37,142 - INFO - main - Initializing MemeBot...
+2026-08-16 01:22:37,264 - INFO - main - State file removed.
+2026-08-16 01:22:37,265 - INFO - main - Starting PAPER trading loop (real data)
+2026-08-16 01:22:37,267 - INFO - monitor - Paper trading mode – REST discovery + real-time price polling
+2026-08-16 01:22:37,292 - INFO - monitor - REST fallback thread started (polls every 10 seconds for new tokens)
+2026-08-16 01:22:38,726 - INFO - monitor - REST added token: 9593dFjs... @ $0.00225500
+2026-08-16 01:22:38,731 - INFO - monitor - REST added token: EyNbAt2a... @ $0.00687700
+2026-08-16 01:22:38,735 - INFO - monitor - REST added token: 6Jc7JsWn... @ $0.00687900
+2026-08-16 01:22:38,738 - INFO - monitor - REST added token: 8FtafPHh... @ $0.00835200
+2026-08-16 01:22:38,738 - INFO - monitor - REST added token: 0xFbD40b... @ $0.00274600
+2026-08-16 01:22:38,739 - INFO - monitor - REST added token: 0xF133B7... @ $0.00157700
+2026-08-16 01:22:38,748 - INFO - monitor - REST added token: 0xf2311C... @ $0.00183200
+2026-08-16 01:22:38,749 - INFO - monitor - REST added token: Eg8uZs9R... @ $0.00680700
+2026-08-16 01:22:38,749 - INFO - monitor - REST added token: 0xddA267... @ $0.00019780
+2026-08-16 01:22:38,751 - INFO - monitor - REST added token: 0x703286... @ $0.00181200
+2026-08-16 01:22:38,752 - INFO - monitor - REST added token: 0xAE2Df3... @ $0.00001166
+2026-08-16 01:22:38,752 - INFO - monitor - REST added token: HfNw1rT7... @ $0.00000312
+2026-08-16 01:22:38,767 - INFO - monitor - REST added token: AfwyNJG2... @ $0.00000147
+2026-08-16 01:22:38,769 - INFO - monitor - REST added 13 token(s) to queue
+2026-08-16 01:22:40,111 - INFO - main - Price monitor loop started (every 2s)
+2026-08-16 01:22:45,121 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:22:47,362 - INFO - monitor - REST added token: 0x311935... @ $75.30000000
+2026-08-16 01:22:47,362 - INFO - monitor - REST added token: 5vhw96LZ... @ $76.06400000
+2026-08-16 01:22:47,363 - INFO - monitor - REST added token: BCWd9Gw3... @ $84.29000000
+2026-08-16 01:22:47,364 - INFO - monitor - REST added token: 7AEEdoP2... @ $85.01900000
+2026-08-16 01:22:47,365 - INFO - monitor - REST added token: ALAcK3Ds... @ $86.52000000
+2026-08-16 01:22:47,365 - INFO - monitor - REST added token: GqR98CsE... @ $85.48000000
+2026-08-16 01:22:47,366 - INFO - monitor - REST added token: SooEj828... @ $78.36000000
+2026-08-16 01:22:47,367 - INFO - monitor - REST added token: 5XXn2PCJ... @ $87.58000000
+2026-08-16 01:22:47,367 - INFO - monitor - REST added token: 672ArEjP... @ $81.10000000
+2026-08-16 01:22:47,368 - INFO - monitor - REST added token: A9ecbzft... @ $79.82000000
+2026-08-16 01:22:47,371 - INFO - monitor - REST added token: DWCj1WhL... @ $84.54000000
+2026-08-16 01:22:47,371 - INFO - monitor - REST added token: 8F8FLuwv... @ $83.42000000
+2026-08-16 01:22:47,372 - INFO - monitor - REST added token: sokhCSmz... @ $92.43000000
+2026-08-16 01:22:47,373 - INFO - monitor - REST added token: sosd5Q3D... @ $143.20000000
+2026-08-16 01:22:47,374 - INFO - monitor - REST added 14 token(s) to queue
+2026-08-16 01:22:48,414 - INFO - monitor - REST added token: H3f4jYE3... @ $0.00039120
+2026-08-16 01:22:48,415 - INFO - monitor - REST added token: HxQhDGYq... @ $0.00387300
+2026-08-16 01:22:48,416 - INFO - monitor - REST added token: 6GmAFSYs... @ $0.00885400
+2026-08-16 01:22:48,416 - INFO - monitor - REST added token: CARDSccU... @ $0.19300000
+2026-08-16 01:22:48,417 - INFO - monitor - REST added token: FqNUcgaY... @ $0.00021950
+2026-08-16 01:22:48,418 - INFO - monitor - REST added token: ukHH6c7m... @ $0.00083560
+2026-08-16 01:22:48,418 - INFO - monitor - REST added 20 token(s) to queue
+2026-08-16 01:22:52,747 - INFO - monitor - REST added token: 8XtRWb4u... @ $0.00322900
+2026-08-16 01:22:52,748 - INFO - monitor - REST added token: FThrNpdi... @ $0.00077950
+2026-08-16 01:22:52,749 - INFO - monitor - REST added token: pumpCmXq... @ $0.00275500
+2026-08-16 01:22:52,750 - INFO - monitor - REST added token: 9BB6NFEc... @ $0.14300000
+2026-08-16 01:22:52,751 - INFO - monitor - REST added token: FFT4bgyr... @ $0.00009002
+2026-08-16 01:22:52,752 - INFO - monitor - REST added token: 4N4DnNo3... @ $0.00394500
+2026-08-16 01:22:52,752 - INFO - monitor - REST added token: DKu9kykS... @ $0.01420000
+2026-08-16 01:22:52,753 - INFO - monitor - REST added token: Dz9mQ9Nz... @ $0.03872000
+2026-08-16 01:22:52,755 - INFO - monitor - REST added token: KENJSUYL... @ $0.01269000
+2026-08-16 01:22:52,756 - INFO - monitor - REST added token: 8x5VqbHA... @ $0.03802000
+2026-08-16 01:22:52,757 - INFO - monitor - REST added token: 61V8vBaq... @ $0.07193000
+2026-08-16 01:22:52,757 - INFO - monitor - REST added token: 6hxu7BY4... @ $0.00018990
+2026-08-16 01:22:52,758 - INFO - monitor - REST added token: 8xH8ikqG... @ $0.00039720
+2026-08-16 01:22:52,758 - INFO - monitor - REST added token: 5XyKkFaJ... @ $0.00031240
+2026-08-16 01:22:52,759 - INFO - monitor - REST added 14 token(s) to queue
+2026-08-16 01:22:53,706 - INFO - monitor - REST added token: 0xB7C000... @ $0.01047000
+2026-08-16 01:22:53,708 - INFO - monitor - REST added token: 0xec4252... @ $0.00203200
+2026-08-16 01:22:53,709 - INFO - monitor - REST added token: TDECSYjD... @ $0.00003635
+2026-08-16 01:22:53,710 - INFO - monitor - REST added token: 274HcT76... @ $0.00260900
+2026-08-16 01:22:53,711 - INFO - monitor - REST added token: 99kDGDi5... @ $0.00487900
+2026-08-16 01:22:53,712 - INFO - monitor - REST added 19 token(s) to queue
+2026-08-16 01:22:58,725 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:23:07,891 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:23:16,927 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:23:26,336 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:23:35,552 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:23:44,485 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:23:53,399 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:24:02,662 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:24:11,929 - INFO - monitor - Queue empty, forcing REST fetch...
+2026-08-16 01:24:21,511 - INFO - monitor - Queue empty, forcing REST fetch...

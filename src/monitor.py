@@ -131,16 +131,18 @@ class TokenMonitor:
             self.logger.debug(f"REST fallback error: {e}")
 
     def _enrich_token_data(self, token_data: dict) -> dict:
-        """Fill missing fields with conservative defaults (paper trading friendly)."""
+        """
+        Fill in missing fields with defaults that allow tokens to pass soft filters.
+        """
         enriched = token_data.copy()
         if enriched.get("holder_concentration") is None:
             enriched["holder_concentration"] = 0.15
         if enriched.get("dev_holding") is None:
             enriched["dev_holding"] = 0.01
         if enriched.get("volume_24h") is None:
-            enriched["volume_24h"] = 10000
+            enriched["volume_24h"] = 50000
         if enriched.get("holders") is None:
-            enriched["holders"] = 20
+            enriched["holders"] = 30
         return enriched
 
     def get_next_token(self) -> Iterator[dict]:

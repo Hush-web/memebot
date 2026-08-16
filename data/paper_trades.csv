@@ -5,3 +5,6 @@ timestamp,token_address,entry_price,exit_price,position_size,pnl_percent,pnl_dol
 ,,0.002963,0.002965,,0.0006749915626055571,,TIMEOUT,,False,False,False,False,,,
 ,,0.0007602,0.0007579,,-0.0030255196001052376,,TIMEOUT,,False,False,False,False,,,
 ,,0.0001248,0.0001248,,0.0,,TIMEOUT,,False,False,False,False,,,
+,,0.002277962665,0.002255,,-0.010080351777846198,,TIMEOUT,,False,False,False,False,,,
+,,0.00694577,0.006877,,-0.009900990099009917,,TIMEOUT,,False,False,False,False,,,
+,,0.00843552,0.008352,,-0.009900990099009915,,TIMEOUT,,False,False,False,False,,,

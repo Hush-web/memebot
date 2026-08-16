@@ -84,11 +84,15 @@ class TokenFilter:
             for check in hard_checks:
                 passed, reason = check(token_data)
                 if not passed:
+                    # Log the rejection with the token address
+                    self.logger.debug(f"Token {token_data.get('address', 'unknown')[:8]} rejected: {reason}")
                     return False, reason, 0.0
 
             score = self.score_token(token_data)
-            if score < 40:
-                return False, f"soft score too low ({score})", score
+            # Use configurable threshold (default 20 if not set)
+            threshold = getattr(config, 'SOFT_SCORE_THRESHOLD', 20)
+            if score < threshold:
+                return False, f"soft score too low ({score} < {threshold})", score
 
             return True, "passed all filters", score
         except Exception as e:
