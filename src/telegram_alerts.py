@@ -106,9 +106,3 @@ def alert_system_started() -> None:
         f"Capital: <b>${config.BASE_CAPITAL:.2f}</b>"
     )
     send_telegram(msg)
-
-
-def alert_health_check() -> None:
-    """Send a health check ping – useful for monitoring."""
-    msg = f"💚 <b>HEALTH CHECK</b>\nBot is running normally at {__import__('datetime').datetime.now().strftime('%H:%M')}"
-    send_telegram(msg)
